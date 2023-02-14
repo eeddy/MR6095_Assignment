@@ -7,7 +7,7 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 public class SceneManager : MonoBehaviour
 {
     public GameObject template;
-    public GameObject plant, painting, book, pillow;
+    public GameObject plant, painting, book, pillow, chair, sofa, table, lamp;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,26 @@ public class SceneManager : MonoBehaviour
     public void PillowClicked() {
         Debug.Log("Pillow");
         CreateObject(pillow, new Vector3(1,1,1));
+    }
+
+    public void ChairClicked() {
+        Debug.Log("Chair");
+        CreateObject(chair, new Vector3(1,1,1));
+    }
+
+    public void SofaClicked() {
+        Debug.Log("Sofa");
+        CreateObject(sofa, new Vector3(1,1,1));
+    }
+
+    public void TableClicked() {
+        Debug.Log("Table");
+        CreateObject(table, new Vector3(1,1,1));
+    }
+
+    public void LampClicked() {
+        Debug.Log("Lamp");
+        CreateObject(lamp, new Vector3(1,1,1));
     }
 
     void CreateObject(GameObject obj, Vector3 vec) {
