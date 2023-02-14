@@ -9,6 +9,8 @@ public class SceneManager : MonoBehaviour
     public GameObject template;
     public GameObject plant, painting, book, pillow, chair, sofa, table, lamp;
     private GameObject currentObject;
+    private ObjectManipulator manipulator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,61 +59,80 @@ public class SceneManager : MonoBehaviour
     }
 
     public void DefaultColour() {
-        currentObject.GetComponent<Renderer> ().material.color = Color.white;
+        foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.white;
+            }
     }
 
     public void Red() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.red;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.red;
+            }
         }
     }
 
     public void Green() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.green;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.green;
+            }
         }
     }
 
     public void Blue() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.blue;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.blue;
+            }
         }
     }
 
     public void Magenta() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.magenta;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.magenta;
+            }
         }
     }
 
     public void Cyan() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.cyan;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.cyan;
+            }
         }
     }
 
     public void Yellow() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.yellow;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.yellow;
+            }
         }
     }
 
     public void Black() {
         if(currentObject != null){
-            currentObject.GetComponent<Renderer> ().material.color = Color.black;
+            foreach(Renderer r in currentObject.GetComponentsInChildren<Renderer>()){
+                r.material.color = Color.black;
+            }
         }
     }
 
+    public void UpdateLastObject(ManipulationEventData arg, GameObject obj) {
+        currentObject = obj;
+    }
+
     void CreateObject(GameObject obj, Vector3 vec) {
-
-        if(currentObject != null) {
-            Destroy(currentObject);
-        }
-
+        
         GameObject nObj = GameObject.Instantiate(obj,new Vector3(0,0.2f,0),Quaternion.identity);
         nObj.transform.localScale = vec;
         nObj.AddComponent<BoxCollider>();
         nObj.AddComponent<ObjectManipulator>();
+
+        manipulator = nObj.GetComponent<ObjectManipulator>();
+        manipulator.OnManipulationStarted.AddListener((data) => UpdateLastObject(data, nObj));
         currentObject = nObj;
 
     }
