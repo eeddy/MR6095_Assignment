@@ -8,6 +8,7 @@ public class SceneManager : MonoBehaviour
 {
     public GameObject template;
     public GameObject plant, painting, book, pillow, chair, sofa, table, lamp;
+    private GameObject currentObject;
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +56,63 @@ public class SceneManager : MonoBehaviour
         CreateObject(lamp, new Vector3(1,1,1));
     }
 
+    public void DefaultColour() {
+        currentObject.GetComponent<Renderer> ().material.color = Color.white;
+    }
+
+    public void Red() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.red;
+        }
+    }
+
+    public void Green() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.green;
+        }
+    }
+
+    public void Blue() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.blue;
+        }
+    }
+
+    public void Magenta() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.magenta;
+        }
+    }
+
+    public void Cyan() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.cyan;
+        }
+    }
+
+    public void Yellow() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.yellow;
+        }
+    }
+
+    public void Black() {
+        if(currentObject != null){
+            currentObject.GetComponent<Renderer> ().material.color = Color.black;
+        }
+    }
+
     void CreateObject(GameObject obj, Vector3 vec) {
+
+        if(currentObject != null) {
+            Destroy(currentObject);
+        }
+
         GameObject nObj = GameObject.Instantiate(obj,new Vector3(0,0.2f,0),Quaternion.identity);
         nObj.transform.localScale = vec;
         nObj.AddComponent<BoxCollider>();
         nObj.AddComponent<ObjectManipulator>();
+        currentObject = nObj;
+
     }
 }
