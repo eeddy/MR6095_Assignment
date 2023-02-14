@@ -5,14 +5,15 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - template: {instanceID: 0}
-  - plant: {fileID: 919132149155446097, guid: 1ac80f5c0fda6a5449ca9b77076008ab, type: 3}
-  - painting: {fileID: 100004, guid: 5bc4bd0497155b544aaf2ee9c5d8510e, type: 3}
+  - plant: {fileID: 2617698962011820525, guid: d641da48ee6840f4f8c003a6f19095ac, type: 3}
+  - painting: {fileID: 100000, guid: 1d5e245361b886f45bb9b9642b693bf1, type: 3}
   - book: {fileID: 100000, guid: 5bb3f8a9fa8f5fc4c984867835a018b6, type: 3}
   - pillow: {fileID: 100000, guid: 18e8f2e1faf424e45b447fbb9f657077, type: 3}
   - chair: {fileID: 100000, guid: 70d3659c52536984f9434c6003369ba0, type: 3}
   - sofa: {fileID: 100000, guid: d665ab0e54676a44b836ae17a3cd4318, type: 3}
   - table: {fileID: 100000, guid: 9eb54f3e8326b794aac2ed2c7b7c33c4, type: 3}
   - lamp: {fileID: 100006, guid: c1aea7952634caf4496e08850c55c2df, type: 3}
+  - test: {fileID: 100006, guid: c1aea7952634caf4496e08850c55c2df, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
